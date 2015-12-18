@@ -1,15 +1,13 @@
 //
 //  ViewController.h
-//  iDrop
+//  iDrop2
 //
-//  Created by Naranbayar on 11/15/15.
-//  Copyright © 2015 Naranbayar. All rights reserved.
+//  Created by Larry Walters on 11/15/15.
+//  Copyright © 2015 Hackathon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController <UIAppearanceContainer,UITableViewDelegate>
 
 @end
-

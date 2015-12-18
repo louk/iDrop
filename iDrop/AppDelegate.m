@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Button/Button.h>
+
 
 @interface AppDelegate ()
 
@@ -16,8 +18,39 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    /// This is not required if you manage your own permission requesting.
+    [Button allowButtonToRequestLocationPermission:YES];
+    
+    // Replace YOUR_BUTTON_APP_ID with your App ID from the Button Dashboard https://app.usebutton.com
+    [[Button sharedButton] configureWithApplicationId:@"app-5dbf87a7acf03c8c" completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+    }];
+    
+    //[DBTManager initManager];
+    // Apply some style to your Button.
+    [self applyButtonAppearance];
+    
     return YES;
+}
+
+
+#pragma mark - Button Appearance Proxy Styling
+
+- (void)applyButtonAppearance {
+    
+    BTNDropinButton *appearance = [BTNDropinButton appearance];
+    appearance.highlightedTextColor = [UIColor lightGrayColor];
+    appearance.iconSize     = 20.0;
+    appearance.borderColor  = [UIColor grayColor];
+    appearance.borderWidth  = 1.0;
+    appearance.cornerRadius = 5.0;
+    
+    appearance = [BTNDropinButton appearanceWhenContainedIn:
+                  [UITableView class], nil];
+    appearance.borderWidth = 0.0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

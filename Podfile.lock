@@ -1,0 +1,10 @@
+PODS:
+  - dbt-sdk (0.2.2)
+
+DEPENDENCIES:
+  - dbt-sdk (~> 0.2.2)
+
+SPEC CHECKSUMS:
+  dbt-sdk: 8658548153d0c016b6bfd4adee64f457e17b2db4
+
+COCOAPODS: 0.39.0
